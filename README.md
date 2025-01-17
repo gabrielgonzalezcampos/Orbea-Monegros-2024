@@ -39,10 +39,6 @@ El proyecto incluye cinco módulos principales de análisis:
 
 ## Instalación
 
-Hay dos formas de instalar el proyecto:
-
-### Instalación manual
-
 1. Clonar el repositorio:
 ```bash
 git clone https://github.com/gabrielgonzalezcampos/Orbea-Monegros-2024.git
@@ -55,7 +51,7 @@ conda create -n orbea-env python=3.11
 conda activate orbea-env
 ```
 
-3. Instalar el paquete ya sea en modo desarrollo o directamente como paquete:
+3. Instalar el paquete ya sea en modo desarrollo o directamente como paquete congelado:
 
 - Instalar el paquete en modo desarrollo:
 ```bash
