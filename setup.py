@@ -15,20 +15,21 @@ setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/yourusername/orbea-monegros-analysis",
-    packages=find_packages(),
+    packages=find_packages(include=['src', 'src.*']),
     install_requires=requirements,
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Intended Audience :: Developers",
+        "Intended Audience :: Science/Research",
         "License :: OSI Approved :: Apache Software License",
         "Operating System :: OS Independent",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.8",
-        "Programming Language :: Python :: 3.9",
-        "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
+        "Programming Language :: Python :: 3.12",
         "Topic :: Scientific/Engineering :: Information Analysis",
+        "Topic :: Scientific/Engineering :: Data Visualization",
     ],
-    python_requires='>=3.8',
+    python_requires='>=3.11',
     entry_points={
         'console_scripts': [
             'orbea-analysis=main:main',
@@ -36,7 +37,9 @@ setup(
     },
     include_package_data=True,
     package_data={
-        '': ['data/*.csv', 'img/*.png'],
+        'src': ['data/*.csv'],
     },
+    data_files=[
+        ('data', ['data/dataset.csv']),
+    ],
 )
-

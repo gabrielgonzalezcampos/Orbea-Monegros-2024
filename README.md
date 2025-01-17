@@ -32,12 +32,16 @@ El proyecto incluye cinco módulos principales de análisis:
 - Anaconda o Miniconda
 
 ### Dependencias principales
-- pandas >= 2.0.3
-- numpy >= 1.24.3
-- matplotlib >= 3.7.1
-- Faker >= 19.3.0
+- pandas == 2.2.3
+- matplotlib == 3.10.0
+- Faker == 33.3.1
+- pytest == 8.3.4
 
 ## Instalación
+
+Hay dos formas de instalar el proyecto:
+
+### Instalación a mano
 
 1. Clonar el repositorio:
 ```bash
@@ -51,14 +55,26 @@ conda create -n orbea-env python=3.11
 conda activate orbea-env
 ```
 
-3. Instalar el paquete en modo desarrollo:
+3. Instalar el paquete ya sea en modo desarrollo o directamente como paquete
+
+- Instalar el paquete en modo desarrollo:
 ```bash
 pip install -e .
 ```
 
-4. Instalar dependencias:
+- Instalar dependencias:
 ```bash
-pip install -r requirements.txt
+pip install .
+```
+
+### Instalación como paquete
+
+Si solo quieres usar el paquete sin modificar el código:
+
+```bash
+conda create -n orbea-env python=3.11
+conda activate orbea-env
+pip install git+https://github.com/gabrielgonzalezcampos/Orbea-Monegros-2024.git
 ```
 
 ## Dataset
@@ -78,19 +94,30 @@ El dataset debe contener las siguientes columnas:
 
 ### Modos de Ejecución
 
-#### Ejecutar todos los ejercicios (por defecto)
+El proyecto se puede ejecutar de dos formas:
+
+#### 1. Usando Python directamente
 ```bash
+# Ejecutar todos los ejercicios (por defecto)
 python main.py
-```
 
-#### Ejecutar un ejercicio específico
-```bash
+# Ejecutar un ejercicio específico
 python main.py --exercise 2
+
+# Modo Interactivo
+python main.py --interactive
 ```
 
-#### Modo Interactivo
+#### 2. Usando el comando instalado
 ```bash
-python main.py --interactive
+# Ejecutar todos los ejercicios (por defecto)
+orbea-analysis
+
+# Ejecutar un ejercicio específico
+orbea-analysis --exercise 2
+
+# Modo Interactivo
+orbea-analysis --interactive
 ```
 
 ### Salidas generadas
@@ -128,6 +155,17 @@ pylint src/
 pylint src/ex1.py
 ```
 
+## Problemas Comunes
+
+### ModuleNotFoundError al ejecutar tests
+Si encuentras errores de importación al ejecutar los tests, asegúrate de:
+1. Estar en el directorio raíz del proyecto
+2. Tener el entorno virtual activado
+3. Haber instalado el paquete en modo desarrollo (`pip install -e .`)
+
+### Errores al generar imágenes
+La carpeta `img/` se crea automáticamente, pero asegúrate de tener permisos de escritura en el directorio del proyecto.
+
 ## Estructura del Proyecto
 
 ```
@@ -138,19 +176,21 @@ orbea_monegros/
 ├── img/                    # Visualizaciones generadas
 │   └── histograma.png     
 ├── src/                    # Código fuente
-│   ├── __init__.py
+│   ├── project_state.py   # Orquestador de la ejecución de los ejercicios
 │   ├── ex1.py             # Importación y EDA
 │   ├── ex2.py             # Anonimización
 │   ├── ex3.py             # Análisis temporal
 │   ├── ex4.py             # Análisis de clubs
-│   └── ex5.py             # Análisis UCSC
+│   ├── ex5.py             # Análisis UCSC
+│   └── utils.py           # Funciones auxiliares
 ├── tests/                  # Tests unitarios
-│   ├── __init__.py
+│   ├── test_project_state.py
 │   ├── test_ex1.py
 │   ├── test_ex2.py
 │   ├── test_ex3.py
 │   ├── test_ex4.py
-│   └── test_ex5.py
+│   ├── test_ex5.py
+│   └── test_utils.py
 ├── main.py                 # Script principal
 ├── setup.py               # Configuración del paquete
 ├── requirements.txt       # Dependencias
