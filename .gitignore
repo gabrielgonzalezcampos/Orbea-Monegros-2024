@@ -1,0 +1,38 @@
+# Carpetas generadas por Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribución / empaquetado
+dist/
+build/
+*.egg-info/
+
+# Entornos virtuales
+venv/
+env/
+.env/
+
+# Resultados de tests y coverage
+.pytest_cache/
+.coverage
+htmlcov/
+coverage.xml
+.pytest_cache/
+
+# Carpeta de imágenes generadas
+img/
+
+# IDEs y editores
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de registro
+*.log
