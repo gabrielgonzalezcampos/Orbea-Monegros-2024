@@ -1,0 +1,3 @@
+[MASTER]
+# Agrega el directorio src al path de Python
+init-hook='import sys; sys.path.append(".")'

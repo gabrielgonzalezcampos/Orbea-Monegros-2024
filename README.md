@@ -41,7 +41,7 @@ El proyecto incluye cinco módulos principales de análisis:
 
 1. Clonar el repositorio:
 ```bash
-git clone [url-repositorio]
+git clone https://github.com/gabrielgonzalezcampos/Orbea-Monegros-2024.git
 cd orbea-monegros
 ```
 
